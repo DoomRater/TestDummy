@@ -185,6 +185,9 @@ public class EntityDummy extends EntityLiving implements IEntityAdditionalSpawnD
       this.lastDamage = damage;
       this.hurtResistantTime = this.maxHurtResistantTime;
     }
+    //Most mods show damage in half hearts, not full hearts
+    //If we do this earlier, the damage resistance time will be off
+    damage *= 2.0;
 
     // calculate the ACTUAL damage done after armor n stuff
     if(!this.isEntityInvulnerable(source) && !world.isRemote) {
